@@ -1,0 +1,248 @@
+*{ 
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Kumbh Sans", sans-serif;
+}
+input {
+    outline: none;
+    border: 0;
+}
+::placeholder{
+    color: white;
+}
+button {
+    outline: none;
+    border: 0;
+    cursor: pointer;
+}
+
+:root {
+    --dark: #0a1622;
+    --mid: #1c2d37;
+    --light: #344655;
+    --green: #59ca3a;
+}
+
+body{
+    background-color: var(--mid);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    gap: 10px;
+    user-select: none;
+    padding: 10px;
+}
+
+.box-container {
+    background-color: var(--dark);
+    border-radius: 10px;
+    width: 100%;
+    max-width: 450px;
+    aspect-ratio: 1/1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+}
+.box-container .box {
+    background-color: var(--mid);
+    border-radius: 10px;
+    flex: calc((100% - 60px) / 5);
+    aspect-ratio: 1/1;
+    border: 1px solid transparent;
+    transition: opacity 0.5s;
+}
+.box-container .box img.fadein {
+    opacity: 100%;
+    scale: 0.7;
+}
+.box-container .box.active {
+    background-color: var(--dark);
+    border: 1px solid var(--mid);
+}
+.box-container .box img {
+    width: 80%;
+    scale: 0.7;
+    transition: all 0.4s ease-out;
+}
+
+.controll-container {
+    background-color: var(--dark);
+    border-radius: 6px;
+    width: 100%;
+    max-width: 500px;
+    height: 50px;
+    padding: 5px;
+    gap: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.controll-container .bomb-number {
+    display: flex;
+    gap: 5px;
+    height: 100%;
+}
+.controll-container .bomb-number input {
+    background-color: var(--light);
+    color: white;
+    width: 40px;
+    text-align: center;
+    border-radius: 4px;
+}
+.controll-container .bomb-number div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.controll-container .bomb-number div button {
+    background-color: var(--light);
+    color: white;
+    border-radius: 4px;
+    height: 50%;
+    aspect-ratio: 3/2;
+    font-size: 10px;
+}
+
+.controll-container .gambling-info h4 {
+    color: white;
+    font-weight: 300;
+    font-size: 15px;
+}
+.controll-container .gambling-info h4 span {
+    font-weight: 500;
+}
+
+.controll-container .start {
+    background-color: var(--green);
+    border-radius: 5px;
+    width: 100px;
+    height: 100%;
+    font-weight: 600;
+    color: white;
+    border: 1px solid transparent;
+    transition: all 0.1s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.controll-container .start:hover:enabled {
+    border: 1px solid var(--green);
+    background-color: hsla(107, 58%, 51%, 0.1);
+    color: var(--green);
+}
+.controll-container .checkout {
+    border: 1px solid var(--green);
+    background-color: hsla(107, 58%, 51%, 0.1);
+    color: var(--green);    
+    border-radius: 5px;
+    width: 100px;
+    height: 100%;
+    font-weight: 600;
+    transition: all 0.1s;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+input:disabled , button:not(.box):disabled {
+    opacity: 40%;
+    cursor: no-drop;
+}
+
+.controll-container .gambling-info {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px 0 10px;
+}
+.controll-container .gambling-info input.input-price {
+    background-color: var(--light);
+    color: white;
+    width: 50px;
+    height: 100%;
+    text-align: center;
+    border-radius: 4px;
+}
+.controll-container .gambling-info span.line {
+    background-color: var(--mid);
+    border-radius: 100px;
+    width: 2px;
+    height: 90%;
+}
+
+.lose-alert {
+    background-color: var(--dark);
+    border-radius: 10px;
+    width: 50%;
+    max-width: 300px;
+    aspect-ratio: 2/1;
+    position: fixed;
+    z-index: 100;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%,-50%);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+footer .my-tag {
+    color: var(--green);
+    font-weight: 300;
+    cursor: default;
+}
+footer .my-tag span {
+    text-decoration: underline;
+}
+footer a {
+    text-decoration: none;
+    color: var(--green);
+}
+
+/* Responsive media query */
+@media (max-width: 600px) {
+    .box-container {
+        gap: 5px;
+        padding: 5px;
+    }
+    .box-container .box img {
+        width: 70%;
+    }
+    .controll-container {
+        /* flex-direction: column; */
+        height: auto;
+        gap: 5px;
+        padding: 5px;
+    }
+    .controll-container .start, 
+    .controll-container .checkout {
+        width: 100%;
+        height: 40px;
+    }
+    .controll-container .bomb-number input {
+        width: 35px;
+    }
+    .controll-container .bomb-number div button {
+        font-size: 8px;
+    }
+    .controll-container .gambling-info {
+        /* flex-direction: column; */
+        align-items: flex-start;
+        gap: 5px;
+        padding: 0;
+    }
+}
